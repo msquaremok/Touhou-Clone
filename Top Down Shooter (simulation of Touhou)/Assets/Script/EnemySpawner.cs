@@ -5,22 +5,37 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour {
 
     [SerializeField] List<WaveConfig> waveConfigs;
-    int startingWave = 0;
+    [SerializeField] int startingWave = 0;
+    [SerializeField] bool looping = false;
 
-	// Use this for initialization
-	void Start () {
-        var currentWave = waveConfigs[startingWave];
-        StartCoroutine(SpawnEnemiesWave(currentWave));
+    // Use this for initialization
+    IEnumerator Start ()
+    {
+        do
+        {
+            yield return StartCoroutine(SpawnAllWaves());
+        }
+        while (looping);
 	}
+
+    private IEnumerator SpawnAllWaves()
+    {
+        for (int waveIndex = startingWave; waveIndex < waveConfigs.Count; waveIndex ++)
+        {
+            var currentWave = waveConfigs[waveIndex];
+            yield return StartCoroutine(SpawnEnemiesWave(currentWave));
+        }
+
+    }
 
     private IEnumerator SpawnEnemiesWave(WaveConfig waveConfig)
     {
-        for (int enemyCount = 0; enemyCount < waveConfig.GetEnemyCount(); enemyCount++)
-        {
-            var newEnemy = Instantiate(waveConfig.GetEnemyPrefab(), waveConfig.GetWaypoints()[0].transform.position, Quaternion.identity);
-            newEnemy.GetComponent<Pathing>().SetWaveConfig(waveConfig);
-            yield return new WaitForSeconds(waveConfig.GetSpawnInterval());
-        }
+         for (int enemyCount = 0; enemyCount < waveConfig.GetEnemyCount(); enemyCount++)
+         {
+             var newEnemy = Instantiate(waveConfig.GetEnemyPrefab(), waveConfig.GetWaypoints()[0].transform.position, Quaternion.identity);
+             newEnemy.GetComponent<Pathing>().SetWaveConfig(waveConfig);
+             yield return new WaitForSeconds(waveConfig.GetSpawnInterval());
+         }
     }
 
 }
