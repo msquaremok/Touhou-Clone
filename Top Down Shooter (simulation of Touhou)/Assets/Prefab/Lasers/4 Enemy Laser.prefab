@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50695144407768006}
   - component: {fileID: 114761542725203776}
   - component: {fileID: 60462976400059370}
+  - component: {fileID: 114848003877257408}
   m_Layer: 11
   m_Name: 4 Enemy Laser
   m_TagString: Untagged
@@ -79,7 +80,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.74, y: 0.76}
+    oldSize: {x: 0.37, y: 0.38}
     newSize: {x: 0.37, y: 0.38}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -118,6 +119,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
+--- !u!114 &114848003877257408
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1606659600479686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ff2489a1c2440489cab4a1ec66f47b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 360
 --- !u!212 &212423618817365228
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -150,8 +163,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 875181555
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fb4a2052f6cc57940a14c30f3b959980, type: 3}
   m_Color: {r: 0.58775365, g: 0.9811321, b: 0.70901936, a: 1}

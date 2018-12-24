@@ -36,6 +36,11 @@ public class Player : MonoBehaviour {
         Fire();
 	}
 
+    public int GetHealth()
+    {
+        return health;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
@@ -52,12 +57,14 @@ public class Player : MonoBehaviour {
         damageDealer.Hit();
         if (health <= 0)
         {
+            health = 0;
             Die();
         }
     }
 
     private void Die()
     {
+        FindObjectOfType<Level>().LoadGameOver();
         AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, dieVolume);
         gameObject.SetActive(false);
         Destroy(gameObject);

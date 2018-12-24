@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 114929922540443192}
   - component: {fileID: 114543632977327844}
   - component: {fileID: 60515004688445534}
+  - component: {fileID: 50776421373167400}
+  - component: {fileID: 114846046745110876}
   m_Layer: 9
   m_Name: Enemy 3
   m_TagString: Untagged
@@ -43,6 +45,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50776421373167400
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1922699268287950}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!60 &60515004688445534
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -95,6 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 200
+  scoreValue: 300
   shotCounter: 0
   minTimeShotsInterval: 0.2
   maxTimeShotsInterval: 2
@@ -105,9 +128,21 @@ MonoBehaviour:
     type: 2}
   explosionDuration: 1
   deathSFX: {fileID: 8300000, guid: 0f024f0a41fdc9547b1d28cae028e282, type: 3}
+  dieVolume: 0.2
   shootSFX: {fileID: 8300000, guid: 4a122e7003c3d854c96ce1f3d35159c0, type: 3}
   shootVolume: 0.1
-  dieVolume: 0.2
+--- !u!114 &114846046745110876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1922699268287950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d4850431a0904448a341bc11a6a2dd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 500
 --- !u!114 &114929922540443192
 MonoBehaviour:
   m_ObjectHideFlags: 1
